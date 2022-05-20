@@ -20,20 +20,6 @@ public class Program {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-     /* aqui é para testar esse objetos
-
-        INSTÂCIAMOS  o objeto Product
-        Product p = new Product("TV", 1000.00);
-        vamos instância agora ordemItem, a sequênciadentro do argumento é no nosso exemplo é quantidade 1, preço 1000.0
-        e por último vamos coloca o nosso da instânciação do Product*
-        OrdemItem oi1 =  new OrdemItem(1, 1000.00, p);
-
-        System.out.println(oi1);
-        */
-
-        /*  Client cli = new Client("Maria", "maria@gmail.com", sdf.parse("20/10/1995"));*/
-
-
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         System.out.println("Enter client data:");
         System.out.print("Name: ");
@@ -51,9 +37,7 @@ public class Program {
         System.out.print("Status: ");
         OrderStatus status = OrderStatus.valueOf(sc.next()); /*para converte esse String que o usuario digitar para OrderStatus  vamos
         usar OrderStatus.valueOf(sc.next());*/
-
-        /*estamos instânciando o pedido. o instântete do tempo do pedido é o  horario atual do sistema por isso damos um new Date.
-        status que digitamos anterior esse codigo,  cliente tbm q já intânciamos antes desse codigos*/
+        
         Order order = new Order(new Date(), status, client);
 
         // ler os dados do pedido
@@ -69,16 +53,10 @@ public class Program {
             System.out.print("Quantity: ");
             int quantity = sc.nextInt();
 
-            /*vamos instâciar os objetos, temos q instânciar o produto depois intância o item de pedidod associado ao produto
-            e depois inserir esse item de pedido no pedido.
-            passo 1 intânciar o produto
-            seundo passo vamos instânciar o item de pedido associado a esse produto */
             Product product = new Product(productName, productPrice);
 
             OrdeRItem it = new OrdeRItem(quantity, productPrice, product);
 
-
-            /*para associar a lista de pedido dentro do order */
             order.addItem(it);
         }
 
